@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast</title>
+    
+    <!-- Scripts & Stylesheets -->
+    <script type="module" src="/src/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="text-slate-800 font-sans top-0 bg-white overflow-x-hidden">
+
+    <!-- ========================================== -->
+    <!-- 1. NAVIGATION BAR                          -->
+    <!-- ========================================== -->
+    <nav class="py-5 px-4 sm:px-8 md:px-12 flex justify-between items-center sticky top-0 w-full z-50 bg-[#cfcbca]/68 backdrop-blur-sm transition-all">
+        
+        <!-- Logo -->
+        <div class="flex items-center">
+            <img src="src/assets/image/Hero setion images/logo.png" class="h-5 w-auto" alt="Logo">
+        </div>
+
+        <!-- Desktop Navigation Menu -->
+        <ul class="hidden md:flex space-x-8 items-center">
+            <li><a href="#" class="relative text-gray-800 font-medium transition-all duration-300 hover:-translate-y-1 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Home</a></li>
+            <li><a href="#" class="relative text-gray-800 font-medium transition-all duration-300 hover:-translate-y-1 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Pages</a></li>
+            <li><a href="#" class="relative text-gray-800 font-medium transition-all duration-300 hover:-translate-y-1 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Podcast</a></li>
+            <li><a href="#" class="relative text-gray-800 font-medium transition-all duration-300 hover:-translate-y-1 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Blog</a></li>
+            <li><a href="#" class="relative text-gray-800 font-medium transition-all duration-300 hover:-translate-y-1 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Shop</a></li>
+        </ul>
+
+        <!-- Controls: Search & Mobile Menu Toggle -->
+        <div class="flex items-center gap-4">
+            <!-- Search Button -->
+            <div class="flex items-center cursor-pointer text-gray-700 hover:text-black duration-200 gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span class="hidden sm:inline">Search</span>
+            </div>
+
+            <!-- Mobile Hamburger Toggle Button -->
+            <button id="menu-btn" type="button" class="md:hidden text-gray-800 focus:outline-none cursor-pointer p-1" aria-label="Toggle Menu">
+                <!-- Hamburger Icon -->
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <!-- Close Icon -->
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-[65px] left-0 w-full bg-[#cfcbca] backdrop-blur-md border-b border-gray-300 px-6 py-6 z-40 flex flex-col gap-4 shadow-lg transition-all">
+        <a href="#" class="text-gray-900 font-semibold text-lg hover:text-black">Home</a>
+        <a href="#" class="text-gray-900 font-semibold text-lg hover:text-black">Pages</a>
+        <a href="#" class="text-gray-900 font-semibold text-lg hover:text-black">Podcast</a>
+        <a href="#" class="text-gray-900 font-semibold text-lg hover:text-black">Blog</a>
+        <a href="#" class="text-gray-900 font-semibold text-lg hover:text-black">Shop</a>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SECTION                            -->
+    <!-- ========================================== -->
+    <section class="relative w-full min-h-[750px] 2xl:h-[900px] flex flex-col justify-between p-4 sm:p-8 2xl:p-12 text-white">
+        <!-- Hero Background Image -->
+        <img src="src/assets/image/Hero setion images/Hero-main.png" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover z-0">
+
+        <!-- Main Title & Platform Links -->
+        <div class="relative z-10 max-w-[1300px] w-full mx-auto mt-12 2xl:mt-32">
+            <div>
+                <h1 class="font-lato font-bold text-4xl sm:text-6xl 2xl:text-[90px] leading-tight 2xl:leading-[100px] text-black">
+                    New episode <br class="hidden sm:inline"> available now
+                </h1>
+                <p class="mt-3 text-gray-600 font-medium">Available on Apple Soundcast and Spotify</p>
+            </div>
+            
+            <!-- Platform Action Buttons -->
+            <div class="mt-8 flex flex-wrap items-center gap-4 sm:gap-7">
+                <img src="src/assets/image/Hero setion images/h1-rev-img1.png" alt="Apple Podcast" class="h-12 sm:h-auto inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:opacity-90 active:scale-95 cursor-pointer">
+                <img src="src/assets/image/Hero setion images/h1-rev-img2.png" alt="Spotify" class="h-12 sm:h-auto inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:opacity-90 active:scale-95 cursor-pointer">
+            </div>
+        </div>
+
+        <!-- Floating Player Card -->
+        <div class="relative z-20 w-full max-w-[1300px] mx-auto mt-12 2xl:absolute 2xl:left-1/2 2xl:-translate-x-1/2 2xl:-bottom-[145px] bg-white rounded-2xl shadow-xl flex flex-col sm:flex-row items-center p-6 2xl:p-0 overflow-hidden">
+            <!-- Player Thumbnail -->
+            <div class="flex-shrink-0 w-full sm:w-[250px] 2xl:w-[291px] h-[250px] 2xl:h-[291px]">
+                <img src="src/assets/image/Hero setion images/floating-card-img.jpg" alt="Timmy Mike" class="w-full h-full object-cover rounded-xl 2xl:rounded-none">
+            </div>
+
+            <!-- Player UI Controls -->
+            <div class="flex flex-col flex-grow justify-center p-4 2xl:p-8 w-full">
+                <h2 class="font-lato font-bold text-2xl sm:text-3xl text-black">
+                    Timmy Mike: the nature of design
+                </h2>
+                
+                <div class="mt-4 flex items-center gap-3 w-full">
+                    <!-- Play/Pause Button -->
+                    <button id="hero-play-btn" class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center flex-shrink-0 cursor-pointer hover:bg-gray-800 transition-colors">
+                        ▶
+                    </button>
+                    
+                    <!-- Audio Track Progress Bar -->
+                    <div id="progress-container" class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden cursor-pointer">
+                        <div id="hero-progress" class="w-0 h-full bg-black rounded-full transition-all duration-100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 3. DESIGN INSPIRATION SECTION              -->
+    <!-- ========================================== -->
+    <section class="max-w-[1300px] mx-auto pt-16 sm:pt-24 2xl:pt-[280px] pb-16 2xl:pb-[140px] px-4 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left Column: Content & Details -->
+            <div class="flex flex-col gap-6">
+                <h2 class="font-lato font-bold text-3xl sm:text-4xl lg:text-5xl text-black leading-tight">
+                    Best places to find <br class="hidden sm:inline"> design inspiration
+                </h2>
+
+                <!-- Episode Quick Player Meta -->
+                <div class="flex items-center gap-3">
+                    <button class="w-10 h-10 rounded-full border border-gray-300 text-black flex items-center justify-center flex-shrink-0 cursor-pointer hover:bg-gray-100 transition-colors">
+                        ▶
+                    </button>
+                    
+                    <div>
+                        <span class="block font-semibold text-sm text-black">Episode 1</span>
+                        <span class="text-xs text-gray-500">Category • 0:13</span>
+                    </div>
+                </div>
+
+                <!-- Descriptive Text -->
+                <div class="space-y-4 text-gray-600 text-sm leading-relaxed">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                    </p>
+                    <p>
+                        Ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+
+                <a href="#" class="inline-flex items-center gap-2 font-bold text-black text-sm hover:underline mt-2">
+                    Episode page ➔
+                </a>
+            </div>
+
+            <!-- Right Column: Section Image -->
+            <div class="w-full h-[300px] sm:h-[450px] lg:h-[540px] rounded-2xl overflow-hidden shadow-md">
+                <img src="src/assets/image/first-pharagrap-image.png" alt="Design Inspiration" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 4. TOP PODCASTS SLIDER SECTION             -->
+    <!-- ========================================== -->
+    <section class="min-h-[600px] bg-[#F8F8F8] py-16 px-4 sm:px-8 flex flex-col justify-center relative">
+        
+        <!-- Section Header -->
+        <div class="mb-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Top podcasts:</h2>
+            <p class="text-gray-500 text-sm mt-2">Discover the selection of the most popular podcasts.</p>
+        </div>
+
+        <!-- Horizontal Scrollable Slider -->
+        <div id="podcast-slider" class="w-full flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 px-4 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            
+            <!-- Podcast Card 1 -->
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[500px] lg:w-[785px] max-h-[390px] bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
+                <div class="relative w-full md:w-[360px] h-[200px] md:h-auto rounded-xl overflow-hidden shrink-0">
+                    <img src="src/assets/image/im2/pd-imgnew12-300x300.jpg.png" alt="Podcast 1" class="w-full h-full object-cover" />
+                </div>
+                <div class="flex flex-col justify-between py-2 grow">
+                    <div>
+                        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Episode 1 • Technology</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">SRKP selects: open your mind easy</h3>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-gray-900 mt-6 hover:underline">
+                        Episode page <span class="text-xs">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Podcast Card 2 -->
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[500px] lg:w-[785px] max-h-[390px] bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
+                <div class="relative w-full md:w-[360px] h-[200px] md:h-auto rounded-xl overflow-hidden shrink-0">
+                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc" alt="Podcast 2" class="w-full h-full object-cover" />
+                </div>
+                <div class="flex flex-col justify-between py-2 grow">
+                    <div>
+                        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Episode 2 • Technology</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">SRKP selects: keep your watch</h3>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-gray-900 mt-6 hover:underline">
+                        Episode page <span class="text-xs">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Podcast Card 3 -->
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[500px] lg:w-[785px] max-h-[390px] bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
+                <div class="relative w-full md:w-[360px] h-[200px] md:h-auto rounded-xl overflow-hidden shrink-0">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Podcast 3" class="w-full h-full object-cover" />
+                </div>
+                <div class="flex flex-col justify-between py-2 grow">
+                    <div>
+                        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Episode 3 • Life</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">SRKP selects: behind the scenes</h3>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-gray-900 mt-6 hover:underline">
+                        Episode page <span class="text-xs">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Podcast Card 4 -->
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[500px] lg:w-[785px] max-h-[390px] bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
+                <div class="relative w-full md:w-[360px] h-[200px] md:h-auto rounded-xl overflow-hidden shrink-0">
+                    <img src="src/assets/image/Hero setion images/floating-card-img.jpg" alt="Podcast 4" class="w-full h-full object-cover" />
+                </div>
+                <div class="flex flex-col justify-between py-2 grow">
+                    <div>
+                        <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Episode 4 • Life</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-2">SRKP selects: behind the scenes</h3>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-gray-900 mt-6 hover:underline">
+                        Episode page <span class="text-xs">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Slider Navigation Controls -->
+        <div class="flex justify-center items-center gap-6 mt-4">
+            <!-- Prev Button -->
+            <button id="slide-prev" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-black hover:text-white transition-colors cursor-pointer" aria-label="Previous Slide">
+                &#10094;
+            </button>
+
+            <!-- Slide Indicators / Dots -->
+            <div class="flex justify-center gap-2">
+                <span id="dot-0" class="dot w-2.5 h-2.5 bg-gray-800 rounded-full transition-all duration-300"></span>
+                <span id="dot-1" class="dot w-2.5 h-2.5 bg-gray-300 rounded-full transition-all duration-300"></span>
+                <span id="dot-2" class="dot w-2.5 h-2.5 bg-gray-300 rounded-full transition-all duration-300"></span>
+                <span id="dot-3" class="dot w-2.5 h-2.5 bg-gray-300 rounded-full transition-all duration-300"></span>
+            </div>
+
+            <!-- Next Button -->
+            <button id="slide-next" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-black hover:text-white transition-colors cursor-pointer" aria-label="Next Slide">
+                &#10095;
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 5. ESSENTIAL EPISODES GRID                 -->
+    <!-- ========================================== -->
+    <section class="max-w-[1300px] mx-auto px-4 sm:px-8 my-20 sm:my-32">
+        <h2 class="text-3xl sm:text-4xl lg:text-[50px] font-bold text-gray-900">Essential episodes:</h2>
+
+        <!-- Episodes Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-8">
+            
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                <img src="src/assets/image/im2/group essential/g1.png" alt="Episode 1" class="w-full h-56 object-cover rounded-lg" />
+                <div>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                <img src="src/assets/image/im2/group essential/g2.png" alt="Episode 2" class="w-full h-56 object-cover rounded-lg" />
+                <div>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                <img src="src/assets/image/im2/group essential/g3.png" alt="Episode 3" class="w-full h-56 object-cover rounded-lg" />
+                <div>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                <img src="src/assets/image/im2/group essential/g4.png" alt="Episode 4" class="w-full h-56 object-cover rounded-lg" />
+                <div>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                <img src="src/assets/image/im2/group essential/g5.png" alt="Episode 5" class="w-full h-56 object-cover rounded-lg" />
+                <div>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300">
+                <img src="src/assets/image/im2/group essential/g5.png" alt="Episode 6" class="w-full h-56 object-cover rounded-lg" />
+                <div>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 6. VIDEO PARALLAX BANNER                   -->
+    <!-- ========================================== -->
+    <section class="mt-20 sm:mt-32 h-[400px] sm:h-[550px] lg:h-[710px] w-full relative group overflow-hidden">
+        <img src="src/assets/image/im2/vieo section/video.png" alt="Video Background" class="w-full h-full object-cover">
+        
+        <!-- Video Play Overlay Trigger -->
+        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all duration-300 cursor-pointer">
+            <img src="src/assets/image/im2/vieo section/video-play-btn.png" alt="Play Video" class="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transform group-hover:scale-110 transition-transform duration-300">
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 7. HOSTS SECTION                           -->
+    <!-- ========================================== -->
+    <section class="max-w-[1370px] mx-auto px-4 sm:px-8 py-16 sm:py-24">
+            
+        <!-- Section Header -->
+        <div class="flex justify-between items-end mb-8 sm:mb-12 border-b border-gray-100 pb-4">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 font-lato">
+                Meet your hosts:
+            </h2>
+            <a href="#" class="text-xs sm:text-sm font-semibold text-gray-600 hover:text-black transition-colors">
+                View all of them
+            </a>
+        </div>
+
+        <!-- Host Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            
+            <!-- Host Card 1 -->
+            <div class="flex flex-col group cursor-pointer">
+                <div class="w-full h-[380px] sm:h-[420px] rounded-2xl overflow-hidden bg-gray-100 mb-4">
+                    <img src="src/assets/image/im2/Host images/h2.png" alt="Bella Jimenez" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Bella Jimenez</h3>
+                <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider font-medium">Creative Manager</p>
+                
+                <!-- Social Links -->
+                <div class="flex gap-4 mt-3 text-gray-500 text-lg">
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Host Card 2 -->
+            <div class="flex flex-col group cursor-pointer">
+                <div class="w-full h-[380px] sm:h-[420px] rounded-2xl overflow-hidden bg-gray-100 mb-4">
+                    <img src="src/assets/image/im2/Host images/h2png.png" alt="Edwin Watson" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Edwin Watson</h3>
+                <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider font-medium">Creative Manager</p>
+                
+                <!-- Social Links -->
+                <div class="flex gap-4 mt-3 text-gray-500 text-lg">
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Host Card 3 -->
+            <div class="flex flex-col group cursor-pointer">
+                <div class="w-full h-[380px] sm:h-[420px] rounded-2xl overflow-hidden bg-gray-100 mb-4">
+                    <img src="src/assets/image/im2/Host images/H3mg3.jpg.png" alt="Caitlin Henderson" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Caitlin Henderson</h3>
+                <p class="text-xs text-gray-400 mt-1 uppercase tracking-wider font-medium">Creative Manager</p>
+                
+                <!-- Social Links -->
+                <div class="flex gap-4 mt-3 text-gray-500 text-lg">
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 8. FOOTER SECTION                          -->
+    <!-- ========================================== -->
+    <footer class="bg-black text-white w-full py-16 px-4 sm:px-8">
+        <div class="max-w-[1300px] mx-auto flex flex-col gap-12">
+            
+            <!-- Top Footer: Logo & Tagline -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-gray-800 pb-12">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold tracking-tight">Resonator®</span>
+                </div>
+                <p class="text-lg md:text-xl font-medium max-w-md text-gray-300">
+                    We collaborate with ambitious brands and people; let's build something great together.
+                </p>
+            </div>
+
+            <!-- Middle Footer: 3-Column Info -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-400 pt-4">
+                
+                <!-- Col 1: Contact Details -->
+                <div class="flex flex-col gap-2">
+                    <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Start a conversation:</span>
+                    <a href="mailto:podcast@example.com" class="text-white hover:underline">podcast@example.com</a>
+                    <a href="tel:+29608667033" class="text-white hover:underline">+2 960 866 7033</a>
+                </div>
+
+                <!-- Col 2: Location -->
+                <div class="flex flex-col gap-2">
+                    <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Find us here:</span>
+                    <p class="text-white">Brooklyn, NY 11201</p>
+                    <p class="text-white">United States</p>
+                </div>
+
+                <!-- Col 3: Social Profiles -->
+                <div class="flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-2">
+                        <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Follow us on:</span>
+                        <div class="flex gap-4 text-white font-medium">
+                            <a href="#" class="hover:text-gray-400" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#" class="hover:text-gray-400" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" class="hover:text-gray-400" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="hover:text-gray-400" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Footer: Legal Links & Copyright -->
+            <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 border-t border-gray-900 pt-8 gap-4">
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-300">Terms & Conditions</a>
+                    <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                </div>
+                <p>© 2026 Qode Interactive, All Rights Reserved</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
