@@ -1,4 +1,8 @@
 import './style.css';
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger"; // { ScrollTrigger } වෙනුවට කෙලින්ම ScrollTrigger ගන්න
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 document.addEventListener('DOMContentLoaded', () => {
