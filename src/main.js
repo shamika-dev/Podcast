@@ -211,64 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
-    //top podcast titles
-    gsap.fromTo(".top-podcast-titles" , 
-        {
-        opacity:0,
-        y:30,
-
-        },
-        {
-            opacity:1,
-            y:0,
-            duration:0.8,
-            ease:"power2.out",
-            stagger:0.2,
-            scrollTrigger:{
-                trigger:".top-podcast-titles",
-                start:"top 90%",
-            }
-        }
-    )
-
-    //top podcast slider cards
-
-    const podcastTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".top-podcast-titles", // Section එක උඩට එද්දී Animation එක පටන් ගනී
-            start: "top 80%",
-            toggleActions: "play none "
-        }
-    });
-
-    // 1. Title සහ Subtitle Fade In & Slide Down
-    podcastTl.fromTo(".top-podcast-titles", 
-        { opacity: 0, y: -30 }, 
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-    )
-
-    // 2. Podcast Cards එකින් එක Left-to-Right හෝ Upward Fade In වීම (Staggered)
-    .fromTo(".top-podcast-cads > div", 
-        { opacity: 0, y: 50 }, 
-        { 
-            opacity: 1, 
-            y: 0, 
-            duration: 0.8, 
-            ease: "power2.out", 
-            stagger: 0.2 
-        },
-        "-=0.3" // Title එක ඉවර වෙන්න 0.3s කට කලින් Cards animate වීම පටන් ගනී
-    )
-
-    // 3. Slider Buttons සහ Dots පහළින් Smooth ව ඇතුළු වීම
-    .fromTo("#slide-prev, #slide-next, .dot", 
-        { opacity: 0, scale: 0.8 }, 
-        { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)", stagger: 0.05 },
-        "-=0.4"
-    );
 
 
-    //EPISODES GRID
+
 
     // 2. Scroll Animation එක ලියන්න
 gsap.fromTo(".epi-card", 
