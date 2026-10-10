@@ -12,7 +12,7 @@
     <!-- ========================================== -->
     <!-- 1. NAVIGATION BAR                          -->
     <!-- ========================================== -->
-    <nav class="py-5 px-4 sm:px-8 md:px-12 flex justify-between items-center sticky top-0 w-full z-50 bg-[#cfcbca]/50 backdrop-blur-sm transition-all">
+    <nav class="py-5 px-4 sm:px-8 md:px-12 flex justify-between items-center fixed top-0 left-0 w-full z-50 bg-[#cfcbca]/50 backdrop-blur-sm transition-all">
         
         <!-- Logo -->
         <div class="flex items-center">
@@ -80,7 +80,7 @@
             </div>
             
             <!-- Platform Action Buttons -->
-            <div class="hero-section-btn mt-8 flex flex-wrap items-center gap-4 sm:gap-7" style="will-change: transform, opacity;">
+            <div class="hero-section-btn will-change-auto mt-8 flex flex-wrap items-center gap-4 sm:gap-7" style="will-change: transform, opacity;">
                 <img src="src/assets/image/Hero setion images/h1-rev-img1.png" alt="Apple Podcast" class="h-12 sm:h-auto inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:opacity-90 active:scale-95 cursor-pointer">
                 <img src="src/assets/image/Hero setion images/h1-rev-img2.png" alt="Spotify" class="h-12 sm:h-auto inline-block transition-all duration-300 ease-in-out hover:scale-105 hover:opacity-90 active:scale-95 cursor-pointer">
             </div>
@@ -229,7 +229,7 @@
                         Episode page <span class="text-xs">&rarr;</span>
                     </a>
                 </div>
-            </div>
+            </div> 
 
             <!-- Podcast Card 4 -->
             <div class="podcast-card snap-center shrink-0 w-[85vw] sm:w-[500px] lg:w-[785px] max-h-[390px] bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
@@ -279,10 +279,10 @@
         <h2 class="text-3xl sm:text-4xl lg:text-[50px] font-bold text-gray-900">Essential episodes:</h2>
 
         <!-- Episodes Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-8">
+        <div class=" essential-grid will-change-scroll grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mt-8">
             
             <!-- Card 1 -->
-            <div class="epi-card bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
+            <div class="epi-cards bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
                 <img src="src/assets/image/im2/group essential/g1.png" alt="Episode 1" class="w-full h-56 object-cover rounded-lg" />
                 <div>
                     <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
@@ -291,46 +291,46 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="epi-card bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
+            <div class="epi-cards bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
                 <img src="src/assets/image/im2/group essential/g2.png" alt="Episode 2" class="w-full h-56 object-cover rounded-lg" />
                 <div>
-                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 2 • Technology</span>
                     <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
                 </div>
             </div>
 
             <!-- Card 3 -->
-            <div class="epi-card bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
+            <div class="epi-cards bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
                 <img src="src/assets/image/im2/group essential/g3.png" alt="Episode 3" class="w-full h-56 object-cover rounded-lg" />
                 <div>
-                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 3 • Technology</span>
                     <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
                 </div>
             </div>
 
             <!-- Card 4 -->
-            <div class="epi-card bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
+            <div class="epi-cards bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
                 <img src="src/assets/image/im2/group essential/g4.png" alt="Episode 4" class="w-full h-56 object-cover rounded-lg" />
                 <div>
-                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 4 • Technology</span>
                     <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
                 </div>
             </div>
 
             <!-- Card 5 -->
-            <div class="epi-card bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
+            <div class="epi-cards bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
                 <img src="src/assets/image/im2/group essential/g5.png" alt="Episode 5" class="w-full h-56 object-cover rounded-lg" />
                 <div>
-                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 5 • Technology</span>
                     <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
                 </div>
             </div>
 
             <!-- Card 6 -->
-            <div class="epi-card bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
+            <div class="epi-cards bg-white rounded-xl shadow-sm p-4 border border-gray-100 min-h-[380px] flex flex-col justify-between hover:scale-105 transition-transform duration-300" style="will-change: transform, opacity;">
                 <img src="src/assets/image/im2/group essential/g5.png" alt="Episode 6" class="w-full h-56 object-cover rounded-lg" />
                 <div>
-                    <span class="text-xs text-gray-400 mt-3 block">Episode 1 • Technology</span>
+                    <span class="text-xs text-gray-400 mt-3 block">Episode 6 • Technology</span>
                     <h3 class="font-bold text-gray-800 text-base mt-1">SRKP selects: how the new ages work</h3>
                 </div>
             </div>
