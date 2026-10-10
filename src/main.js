@@ -88,6 +88,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Navigation Links Smooth Scroll using Lenis ---
+  const navLinks = document.querySelectorAll("nav a, #mobile-menu a");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+
+      if (href && href.startsWith("#") && href.length > 1) {
+        e.preventDefault();
+        const targetElement = document.querySelector(href);
+
+        if (targetElement) {
+          if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+            if (hamburgerIcon) hamburgerIcon.classList.remove("hidden");
+            if (closeIcon) closeIcon.classList.add("hidden");
+          }
+
+          lenis.scrollTo(targetElement, {
+            offset: -50, 
+            duration: 1.2,
+          });
+        }
+      }
+    });
+  });
+
   // --- Podcast Slider Setup ---
   const slider = document.getElementById("podcast-slider");
   const prevBtn = document.getElementById("slide-prev");
@@ -99,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const firstCard = slider.querySelector(".podcast-card");
       if (!firstCard) return;
 
-      // කාඩ් එකේ පළල සහ CSS හි ඇති gap එක (approx 36px) මතක් කර ගනිමින්
       const cardWidth = firstCard.offsetWidth + 36;
       const activeIndex = Math.round(slider.scrollLeft / cardWidth);
 
@@ -169,11 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.fromTo(
     ".design-section",
     { opacity: 0, y: 50 },
-
     {
       opacity: 1,
       y: 0,
-      duration: 0.2,
+      duration: 0.8, 
       ease: "power2.out",
       scrollTrigger: {
         trigger: ".design-section",
@@ -184,31 +209,29 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   );
 
-  // Episode Cards Scroll Animation
-  // Essential Episode Cards Scroll Animation (Super Smooth Floating Effect)
-  // Essential Episode Cards Scroll Animation (Super Smooth Floating Effect)
+  // Essential Episode Cards Scroll Animation (Super Smooth)
   gsap.fromTo(
-    ".epi-cards",
+    ".epi-cards", 
     {
       opacity: 0,
-      y: 100, // පහළ සිට ටිකක් ඉහළට පාවී ඒමට
-      scale: 0.96, // ඉතා කුඩා පරිමාණයක සිට සාමාන්‍ය ප්‍රමාණයට පැමිණීමට
+      y: 50,
+      scale: 0.96,
     },
     {
       opacity: 1,
       y: 0,
       scale: 1,
-      duration: 0.1, // වේලාව මඳක් වැඩි කිරීමෙන් සිනිදු බව වැඩි වේ
-      ease: "power3.in", // කුට්ටි පැනීම වැළැක්වීමට හොඳම සහ සිනිදු easing එකක්
+      duration: 0.8,
+      ease: "power2.out",
       stagger: {
-        amount: 0.3, // කාඩ්ස් එකිනෙක අතර මතු වීමේ පරතරය ස්මූත් කිරීම
+        amount: 0.3,
         grid: "auto",
         from: "start",
       },
       scrollTrigger: {
-        trigger: ".essential-grid", // මෙතැනට ඔබ HTML එකේ දී ඇති class එක දමා ඇත
-        start: "top 80%", // තිරයේ 85% කට පැමිණි විට ඇනිමේෂන් එක ඇරඹේ
-        scrollTrigger: "play none play revers",
+        trigger: ".essential-grid",
+        start: "top 80%",
+        toggleActions: "play none none none",
       },
       clearProps: "transform",
     },
