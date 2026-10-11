@@ -26,49 +26,118 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0);
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Audio Player Setup ---
   const playBtn = document.getElementById("hero-play-btn");
+  const playIcon = document.getElementById("hero-play-icon");
   const progressBar = document.getElementById("hero-progress");
   const progressContainer = document.getElementById("progress-container");
+  const audioTime = document.getElementById("audio-time");
+  const speed1x = document.getElementById("speed-1x");
+  const speed15x = document.getElementById("speed-15x");
+  const volumeBtn = document.getElementById("volume-btn");
+  const volumeIcon = document.getElementById("volume-icon");
 
   if (playBtn) {
-    const audio = new Audio(
-      "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    );
+    // Local හෝ වෙනත් ස්ථාවරව වැඩ කරන පබ්ලික් MP3 ලින්ක් එකක් පාවිච්චි කිරීම වඩාත් ಸುರක්ෂිතයි
+    const audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
     let isPlaying = false;
 
+    // Helper: Format Time (seconds -> mm:ss)
+    const formatTime = (seconds) => {
+      if (isNaN(seconds)) return "00:00";
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins < 10 ? "0" : ""}${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    };
+
+    // Play/Pause Toggle
     playBtn.addEventListener("click", () => {
       if (isPlaying) {
         audio.pause();
-        playBtn.textContent = "▶";
+        playIcon.className = "fa-solid fa-play";
       } else {
-        audio
-          .play()
-          .catch((err) => console.error("Audio playback error:", err));
-        playBtn.textContent = "⏸";
+        audio.play().catch((err) => console.error("Audio error:", err));
+        playIcon.className = "fa-solid fa-pause";
       }
       isPlaying = !isPlaying;
     });
 
+    // Update Progress & Time (readyState පරීක්ෂා කිරීමෙන් duration එක නියතව ලබාගත හැක)
     audio.addEventListener("timeupdate", () => {
-      if (audio.duration && progressBar) {
-        const progressPercent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = `${progressPercent}%`;
+      if (audio.duration && !isNaN(audio.duration)) {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        
+        // Progress Bar width එක සහ Dot එකේ position එක අප්ඩේට් කිරීම
+        if (progressBar) progressBar.style.width = `${percent}%`;
+        const progressDot = document.getElementById("progress-dot");
+        if (progressDot) progressDot.style.left = `${percent}%`;
+
+        if (audioTime) {
+          audioTime.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+        }
       }
     });
 
-    audio.addEventListener("ended", () => {
-      isPlaying = false;
-      playBtn.textContent = "▶";
-      if (progressBar) progressBar.style.width = "0%";
+    // Ensure duration is loaded initially
+    audio.addEventListener("loadedloadeddata", () => {
+      if (audioTime && audio.duration) {
+        audioTime.textContent = `00:00 / ${formatTime(audio.duration)}`;
+      }
     });
 
+    // Audio Ended Reset
+    audio.addEventListener("ended", () => {
+      isPlaying = false;
+      playIcon.className = "fa-solid fa-play";
+      if (progressBar) progressBar.style.width = "0%";
+      if (audioTime && audio.duration) {
+        audioTime.textContent = `00:00 / ${formatTime(audio.duration)}`;
+      }
+    });
+
+    // Click to Seek
     if (progressContainer) {
       progressContainer.addEventListener("click", (e) => {
         const width = progressContainer.clientWidth;
         const clickX = e.offsetX;
-        if (audio.duration) {
-          audio.currentTime = (clickX / width) * audio.duration;
+        if (audio.duration && !isNaN(audio.duration)) {
+          const newTime = (clickX / width) * audio.duration;
+          
+          // Seek කරන්න කලින් ඕඩියෝ එක පෝස් වෙලා නම් ප්ලේ ස්ටේට් එක තබාගැනීමට
+          audio.currentTime = newTime;
+          
+          // බෆර් ප්‍රශ්න මඟහරවා ගැනීමට ප්ලේ වීම තහවුරු කිරීම
+          if (isPlaying) {
+            audio.play().catch((err) => console.log("Buffering or wait error:", err));
+          }
+        }
+      });
+    }
+
+    // Speed Controls (1.0x සහ 1.5x ලෙස නිවැරදි කර ඇත)
+    if (speed1x) {
+      speed1x.addEventListener("click", () => {
+        audio.playbackRate = 1.0;
+        speed1x.className = "text-xs font-semibold text-black cursor-pointer";
+        speed15x.className = "text-xs font-semibold text-gray-400 hover:text-black cursor-pointer";
+      });
+    }
+
+    if (speed15x) {
+      speed15x.addEventListener("click", () => {
+        audio.playbackRate = 1.5;
+        speed15x.className = "text-xs font-semibold text-black cursor-pointer";
+        speed1x.className = "text-xs font-semibold text-gray-400 hover:text-black cursor-pointer";
+      });
+    }
+
+    // Mute/Unmute Control
+    if (volumeBtn) {
+      volumeBtn.addEventListener("click", () => {
+        audio.muted = !audio.muted;
+        if (audio.muted) {
+          volumeIcon.className = "fa-solid fa-volume-xmark";
+        } else {
+          volumeIcon.className = "fa-solid fa-volume-high";
         }
       });
     }
